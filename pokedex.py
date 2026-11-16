@@ -20,9 +20,9 @@ def pokemon_printer():
 pokemon_printer()
 
 def pokemon_searcher():
-        for pokemon in range(len(data)):
-                type = input("What type of pokemon do you want to see? : ")
-                print (data[pokemon][type]['name'])
+        type = input("What type of pokemon do you want to see? : ")
+        if type == 'type':
+                print (data['type'])
 pokemon_searcher()
 
 
