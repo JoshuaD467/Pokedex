@@ -10,19 +10,21 @@ def pokemon_printer():
         pokemon_choice = int(input("What pokemon do you want to see the name of? type the id: ")) 
 
         if language == "english":
-                print (data[pokemon_choice]['name']['english'])
+                print (data[pokemon_choice - 1]['name']['english'])
         if language == "japanese":
-                print (data[pokemon_choice]['name']['japanese'])
+                print (data[pokemon_choice - 1]['name']['japanese'])
         if language == "chinese":
-                print (data[pokemon_choice]['name']['chinese'])
+                print (data[pokemon_choice - 1]['name']['chinese'])
         if language == "french":
-                print (data[pokemon_choice]['name']['french'])
+                print (data[pokemon_choice - 1]['name']['french'])
 pokemon_printer()
 
 def pokemon_searcher():
-        type = input("What type of pokemon do you want to see? : ")
-        if type == 'type':
-                print (data['type'])
+        types = input("What types of pokemon do you want to find? : ")
+        for pokemon in data:
+                if types in pokemon['type']:
+                        print (pokemon['name']['english'])
+               
 pokemon_searcher()
 
 
