@@ -3,20 +3,15 @@ pokedex = open("./pokedex.json", encoding="utf8")
 data = json.load(pokedex)
 
 def pokemon_printer():
-        for pokemon in range(len(data)):
-                print(data[pokemon]['name']['english'])
-
         language = input("What language would you like to print: english, japanese, chinese, or french? : ").lower()
-        pokemon_choice = int(input("What pokemon do you want to see the name of? type the id: ")) 
-
-        if language == "english":
-                print (data[pokemon_choice - 1]['name']['english'])
-        if language == "japanese":
-                print (data[pokemon_choice - 1]['name']['japanese'])
-        if language == "chinese":
-                print (data[pokemon_choice - 1]['name']['chinese'])
-        if language == "french":
-                print (data[pokemon_choice - 1]['name']['french'])
+        pokemon_choice = int(input("What pokemon do you want to see the name of? type the id: "))
+        if pokemon_choice < 1 or pokemon_choice > 809:
+                pokemon_choice = int(input('That is a invalid id please try again: '))
+                for pokemon in data:
+                        if language in pokemon['name']:
+                                print(pokemon[pokemon_choice - 1]['name'][language])
+                        else: 
+                                print ('language not found')
 pokemon_printer()
 
 def pokemon_searcher():
@@ -26,6 +21,9 @@ def pokemon_searcher():
                         print (pokemon['name']['english'])
                
 pokemon_searcher()
+
+
+     
 
 
 # Create a function that will take the data from the JSON file and you will iterate through the list of 
