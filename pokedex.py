@@ -12,17 +12,21 @@ def pokemon_printer():
 pokemon_printer()
 
 def pokemon_searcher():
-    type = input('What type of pokemon would you lie to find? : ').capitalize()
+    type = input('What type of pokemon would you like to find? : ').capitalize()
     for pokemon in data:
         if type in pokemon['type']:
             print(pokemon['name']['english'])
+    if type != pokemon['type']:
+        print("That is an invalid type")
 pokemon_searcher()
 
-#def pokemon_finder():
-    #search = input("What pokemon would you like to find?: ")
+def pokemon_finder():
+    search = input("What pokemon would you like to find?: ")
+    for pokemon in data:
+        if search in pokemon['name']:
+            print(pokemon['name']['english'])
 
-#pokemon_finder()
-
+pokemon_finder()
 
 
 
