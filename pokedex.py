@@ -8,28 +8,14 @@ for pokemon in data:
     print(pokemon['name']['english'])
 
 def pokemon_printer():
-  while True:
-    print(
-        "These are the available languages: English, Japanese, Chinese, French")
-    language = input("What language do you want to print?: ").strip().lower()
-    if language == "english" or language == "japanese" or language == "chinese" or language == "french":
-      for pokemon in data:
-        print(pokemon["name"][language])
-      break
-    else:
-      print("Invalid language, please try again.")
-
-  while True:
-    try:
-      id = int(input("What pokemon would you like to find the name of? Print the id"))
-      if 1 <= id <= 809:
-        print(data[id - 1]["name"][language])
-        break
-      else:
-        print("ID must be between 1 and 809. Please try again.")
-    except ValueError:
-      print("Please enter a valid number.")
-
+    while True:
+        language = input("What language do you want to print? english/french/chinese/japanese: ").lower()
+        for pokemon in data:
+            print(pokemon['name'][language])
+        else:
+            print("That is an invalid language please try again.")
+    id = int(input("What pokemon would you like to find the name of? Print the id: "))
+    print(data[id - 1]['name'][language])
 pokemon_printer()
 
 def pokemon_searcher():
@@ -45,13 +31,8 @@ pokemon_searcher()
 
 def pokemon_finder():
     search = input("What pokemon would you like to find?: ")
-    match = [pokemon for pokemon in data if search in pokemon['name']['english']]
-    if match:
-        for pokemon in match:
-            print(pokemon['name']['english'])
+    
 pokemon_finder()
-
-
 
 
 
